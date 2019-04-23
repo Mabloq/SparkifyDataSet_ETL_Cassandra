@@ -51,7 +51,7 @@ Primary Key (user_id, session_id, session_item)
 | line[1]                                       	| string           	| no              	|                	| first_name               	| text                                                          	| NO             	|
 | line[4]                                       	| string           	| no              	|                	| last_name                	| text                                                          	| NO             	|
 
-#Data Modeling Justifcations
+# Data Modeling Justifcations
 ## Table 1: session_songplays
 
  - For our session_songplays table we model it so that we can support the following query:
