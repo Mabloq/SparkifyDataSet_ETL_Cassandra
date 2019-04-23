@@ -3,7 +3,7 @@ drop_sessions = "DROP TABLE IF EXISTS session_songplays"
 drop_users = "DROP TABLE IF EXISTS user_songplays"
 drop_songs = "DROP TABLE IF EXISTS songs_songplays"
 
-#create tables
+# create tables
 create_sessions = """
     CREATE TABLE IF NOT EXISTS session_songplays
         (session_id smallint,
@@ -14,7 +14,6 @@ create_sessions = """
          PRIMARY KEY (session_id, session_item)
          )
 """
-
 
 create_users = """
     CREATE TABLE IF NOT EXISTS user_songplays 
@@ -36,11 +35,11 @@ create_songs = """
          song_title text,
          first_name text,
          last_name text,
-         PRIMARY KEY (song_title, artist)
+         PRIMARY KEY (song_title, user_id)
         )
 """
 
-#inserts
+# inserts
 session_insert = """
     INSERT INTO session_songplays 
         (session_id, 
@@ -52,7 +51,6 @@ session_insert = """
     VALUES (%s, %s, %s, %s, %s)
 """
 
-    
 users_insert = """
     INSERT INTO user_songplays
         (user_id, 
@@ -75,13 +73,13 @@ songs_insert = """
          )
     VALUES (%s, %s, %s, %s, %s)
 """
-#test queries
+# test queries
 
 session_query = "SELECT artist, song_title, length FROM session_songplays WHERE session_id=338 AND session_item =4"
 user_query = "SELECT artist, song_title, first_name, last_name FROM user_songplays WHERE user_id = 10 and session_id = 182"
 song_query = "SELECT first_name, last_name FROM song_songplays WHERE song_title='All Hands Against His Own'"
 
-#package them
+# package them
 
 drop_table_queries = [drop_sessions, drop_users, drop_songs]
 create_table_queries = [create_sessions, create_users, create_songs]
