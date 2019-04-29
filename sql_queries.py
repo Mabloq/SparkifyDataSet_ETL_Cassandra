@@ -24,7 +24,7 @@ create_users = """
          song_title text,
          first_name text,
          last_name text,
-         PRIMARY KEY (user_id, session_id, session_item)
+         PRIMARY KEY ((user_id, session_id), session_item)
          )
 """
 
@@ -76,7 +76,7 @@ songs_insert = """
 # test queries
 
 session_query = "SELECT artist, song_title, length FROM session_songplays WHERE session_id=338 AND session_item =4"
-user_query = "SELECT artist, song_title, first_name, last_name FROM user_songplays WHERE user_id = 10 and session_id = 182"
+user_query = "SELECT session_item, artist, song_title, first_name, last_name FROM user_songplays WHERE user_id = 10 and session_id = 182"
 song_query = "SELECT first_name, last_name FROM song_songplays WHERE song_title='All Hands Against His Own'"
 
 # package them
